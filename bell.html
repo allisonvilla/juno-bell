@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script
+			src="https://kit.fontawesome.com/bac3997482.js"
+			crossorigin="anonymous"
+		></script>
+		<title>Juno Bell</title>
+	</head>
+	<body>
+		<div class="cool-container">
+			<i class="fa-solid fa-bell"
+				><img src="./juno.png" alt="Juno text"
+			/></i>
+		</div>
+
+        <audio src="./bell-sound.mp3" preload="auto"></audio>
+	</body>
+
+	<style>
+		i {
+			font-size: 40rem;
+			color: #ea593e;
+			position: relative;
+            cursor: pointer;
+		}
+
+		img {
+			position: absolute;
+			bottom: 37%;
+			left: 22%;
+		}
+
+        .ringing {
+            animation: swinging 1s linear; 
+        }
+
+        @keyframes swinging {
+            20% { transform: rotate(15deg); }
+            40% { transform: rotate(-10deg); }
+            60% { transform: rotate(5deg); }
+            80% { transform: rotate(-5deg); }
+            100% { transform: rotate(0deg); }
+        }
+        
+	</style>
+
+	<script>
+        const bell = document.querySelector('i');
+
+        bell.addEventListener('click', () => {
+            bell.classList.add('ringing'); 
+            document.querySelector('audio').play(); 
+        });
+
+        bell.addEventListener('animationend', () => {
+            bell.classList.remove('ringing'); 
+        })
+
+    </script>
+</html>
